@@ -10,19 +10,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'scrooloose/nerdtree'
 Plug 'roxma/nvim-yarp'
+Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'tpope/vim-sensible'
+Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
+Plug 'dikiaap/minimalist'
 call plug#end()
 
 " Use :help <option> to see the docs
@@ -40,17 +41,19 @@ set number
 set title
 set ruler
 set nospell
+set noswapfile
 
 " Customize view
 sy on
 set t_Co=256
-colorscheme nacx
+colorscheme minimalist
 
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F4> :BufExplorerHorizontalSplit<CR>
 nmap <silent> <F5> :!tmux splitw -v -l 5<CR><CR>
+nmap <Space> /
 
 " Use fancy buffer closing that doesn't close the split
 :nnoremap <silent> <S-Left> :bprevious<CR>
