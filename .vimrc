@@ -126,7 +126,7 @@ if &term =~ '^screen'
 endif
 
 " Close tmux when exiting vim
-autocmd VimLeave * silent !tmux killp -a
+" autocmd VimLeave * silent !tmux killp -a
 
 " Custom file types
 au BufRead,BufNewFile *.md set filetype=markdown
