@@ -32,6 +32,7 @@ set softtabstop=4
 set smartindent
 set incsearch
 set ignorecase
+set wildignorecase
 set smartcase
 set mouse=a
 set hidden
