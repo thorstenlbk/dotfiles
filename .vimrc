@@ -22,6 +22,7 @@ Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
+" Color schemes
 Plug 'dikiaap/minimalist'
 call plug#end()
 
@@ -54,6 +55,7 @@ nmap <F3> :TagbarToggle<CR>
 nmap <F4> :BufExplorerHorizontalSplit<CR>
 nmap <silent> <F5> :!tmux splitw -v -l 5<CR><CR>
 nmap <Space> /
+nmap 0 ^
 
 " Use fancy buffer closing that doesn't close the split
 :nnoremap <silent> <S-Left> :bprevious<CR>
