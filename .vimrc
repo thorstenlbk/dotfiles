@@ -22,6 +22,8 @@ Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
+Plug 'evidens/vim-twig'
+Plug 'lepture/vim-jinja'
 " Color schemes
 Plug 'dikiaap/minimalist'
 call plug#end()
@@ -43,6 +45,8 @@ set title
 set ruler
 set nospell
 set noswapfile
+" Fix for parcel, see:  https://github.com/parcel-bundler/parcel/issues/221
+set backupcopy=yes
 
 " Customize view
 sy on
