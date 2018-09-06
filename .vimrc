@@ -43,6 +43,8 @@ set title
 set ruler
 set nospell
 set noswapfile
+set list
+set listchars=eol:⏎,tab:>-,trail:␠,nbsp:⎵
 
 " Customize view
 sy on
