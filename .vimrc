@@ -22,6 +22,8 @@ Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
+Plug 'evidens/vim-twig'
+Plug 'lepture/vim-jinja'
 " Color schemes
 Plug 'dikiaap/minimalist'
 call plug#end()
@@ -45,6 +47,8 @@ set nospell
 set noswapfile
 set list
 set listchars=eol:⏎,tab:>-,trail:␠,nbsp:⎵
+" Fix for parcel, see:  https://github.com/parcel-bundler/parcel/issues/221
+set backupcopy=yes
 
 " Customize view
 sy on
@@ -58,6 +62,17 @@ nmap <F4> :BufExplorerHorizontalSplit<CR>
 nmap <silent> <F5> :!tmux splitw -v -l 5<CR><CR>
 nmap <Space> /
 nmap 0 ^
+
+" Autocompletion on Tab
+function! Tab_Or_Complete()
+    if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+        return "\<C-N>"
+    else
+        return "\<Tab>"
+    endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+:set dictionary="/usr/dict/words" )
 
 " Use fancy buffer closing that doesn't close the split
 :nnoremap <silent> <S-Left> :bprevious<CR>
