@@ -24,6 +24,7 @@ Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
 Plug 'evidens/vim-twig'
 Plug 'lepture/vim-jinja'
+Plug 'vim-vdebug/vdebug'
 " Color schemes
 Plug 'dikiaap/minimalist'
 call plug#end()
@@ -169,6 +170,11 @@ autocmd FileType qf wincmd J
 " Two space indent in Ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
+" Style vue files
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
 " Autoload changes in .vimrc
 autocmd BufWritePost .vimrc source $MYVIMRC
+" Save on application switch
+:au FocusLost * silent! wa
 
