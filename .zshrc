@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.config/composer/vendor:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/thorsten/.oh-my-zsh"
