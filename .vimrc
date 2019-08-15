@@ -1,17 +1,10 @@
 " Automatically install the plugin manager if missing
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 " Load plugins
 call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'roxma/nvim-yarp'
-Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'Townk/vim-autoclose'
@@ -19,14 +12,23 @@ Plug 'tpope/vim-fugitive'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'tpope/vim-sensible'
 Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
 Plug 'evidens/vim-twig'
 Plug 'lepture/vim-jinja'
 Plug 'vim-vdebug/vdebug'
+Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'phpactor/ncm2-phpactor'
+Plug 'neomake/neomake'
 " Color schemes
 Plug 'dikiaap/minimalist'
+Plug 'modess/vim-phpcolors'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Use :help <option> to see the docs
@@ -48,13 +50,14 @@ set nospell
 set noswapfile
 set list
 set listchars=eol:⏎,tab:>-,trail:␠,nbsp:⎵
+let mapleader="-"
 " Fix for parcel, see:  https://github.com/parcel-bundler/parcel/issues/221
 set backupcopy=yes
 
 " Customize view
 sy on
 set t_Co=256
-colorscheme minimalist
+colorscheme nord
 
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
@@ -120,6 +123,18 @@ let g:airline_symbols.linenr = '␤ '
 let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
 
+" Vim-php-cs-fixer
+" If you use php-cs-fixer version 2.x
+let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
+"let g:php_cs_fixer_config_file = '.php_cs' " options: --config
+" End of php-cs-fixer version 2 config params
+
+let g:php_cs_fixer_php_path = "/usr/bin/php"      " Path to PHP
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 1                    " Return the output of command if 1, else an inline information.
+
 " Enter just selects the item in the autocomplete menu
 " http://vim.wikia.com/wiki/VimTip1386
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -133,9 +148,9 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
-" CtrlP
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
+autocmd FileType php setlocal omnifunc=phpactor#Complete
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " Tmux integration
 if &term =~ '^screen'
