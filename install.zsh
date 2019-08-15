@@ -1,6 +1,8 @@
 #!/bin/zsh
 
+DOTFILES=`pwd`
+
 cd ~
-ln -s dotfiles/.vimrc
-ln -s dotfiles/.vim
-ln -s dotfiles/.tmux
+ln -s ${DOTFILES}/.vimrc
+ln -s ${DOTFILES}/.vim
+ln -s ${DOTFILES}/.tmux
