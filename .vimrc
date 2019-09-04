@@ -10,6 +10,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-sensible'
 Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
@@ -27,7 +28,7 @@ Plug 'phpactor/ncm2-phpactor'
 Plug 'neomake/neomake'
 " Color schemes
 Plug 'dikiaap/minimalist'
-Plug 'modess/vim-phpcolors'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
@@ -57,7 +58,7 @@ set backupcopy=yes
 " Customize view
 sy on
 set t_Co=256
-colorscheme nord
+colorscheme PaperColor
 
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
@@ -122,6 +123,23 @@ endif
 let g:airline_symbols.linenr = '␤ '
 let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["ts", "typoscript"] }
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_enable_elixir_checker = 1
+" let g:syntastic_elixir_checkers = ["elixir"]
+
+" vim: set sw=4 sts=4 et fdm=marker:
 
 " Vim-php-cs-fixer
 " If you use php-cs-fixer version 2.x
