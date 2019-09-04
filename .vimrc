@@ -1,36 +1,195 @@
+" Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if &compatible
+    set nocompatible
+endif
+
 " Automatically install the plugin manager if missing
 
 " Load plugins
 call plug#begin('~/.vim/plugged')
-Plug 'jlanzarotta/bufexplorer'
-Plug 'scrooloose/nerdtree'
-Plug 'roxma/nvim-yarp'
-Plug 'majutsushi/tagbar'
+
+" CTags manager
+Plug 'ludovicchabant/vim-gutentags'
+
+" display the result when searching
+Plug 'henrik/vim-indexed-search'
+
+" syntax highlighting for tmux.conf + other cool options
+Plug 'tmux-plugins/vim-tmux' | Plug 'tmux-plugins/vim-tmux-focus-events'
+
+" seemless navigation between vim windows / tmux pane
+Plug 'christoomey/vim-tmux-navigator'
+
+" wrapper for git and display git diff in the left gutter
+Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify' 
+" fugitive for the hub
+" Plug 'tpope/vim-rhubarb'
+" Display commits for project / file
+Plug 'junegunn/gv.vim'
+
+" surrounding text objects with whatever you want (paranthesis, quotes, html tags...)
+Plug 'tpope/vim-surround'
+
+" easily search, substitute and abbreviate multiple version of words
+Plug 'tpope/vim-abolish'
+
+" the . command can repeat whatever you want!
+" http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
+Plug 'tpope/vim-repeat'
+
+" keystroke to comment automatically depending on the file you're in
 Plug 'tpope/vim-commentary'
-Plug 'Townk/vim-autoclose'
-Plug 'tpope/vim-fugitive'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'vim-syntastic/syntastic'
-Plug 'tpope/vim-sensible'
-Plug 'StanAngeloff/php.vim'
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'mhinz/vim-signify'
-Plug 'sukima/xmledit'
-Plug 'vim-airline/vim-airline'
-Plug 'evidens/vim-twig'
-Plug 'lepture/vim-jinja'
-Plug 'vim-vdebug/vdebug'
-Plug 'adoy/vim-php-refactoring-toolbox'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-Plug 'phpactor/ncm2-phpactor'
+
+" Highlight briefly every yank text
+Plug 'machakann/vim-highlightedyank'
+
+" swap arguments in parenthesis
+Plug 'machakann/vim-swap'
+
+" add new text object (can delete between comma with di, for example)
+Plug 'wellle/targets.vim'
+
+" camel case motion
+Plug 'chaoren/vim-wordmotion'
+
+" colors for i3 config file
+Plug 'PotatoesMaster/i3-vim-syntax'
+
+" Match more stuff with % (html tag, LaTeX...)
+Plug 'andymass/vim-matchup'
+
+" vim project for one specific vimrc / project + startify for startup cow
+Plug 'amiorin/vim-project'
+Plug 'mhinz/vim-startify'
+
+" Asynchronous linting for every languages
 Plug 'neomake/neomake'
-" Color schemes
-Plug 'dikiaap/minimalist'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'arcticicestudio/nord-vim'
+
+" snippet engine + snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Align plugin
+Plug 'godlygeek/tabular'
+
+" nginx syntax colors
+Plug 'chr4/nginx.vim'
+
+" Asynchronous linter
+Plug 'dense-analysis/ale'
+
+" php
+" Plug 'joonty/vdebug'
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
+Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
+
+" php refactoring options
+Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug '2072/php-indenting-for-vim', {'for': 'php'}
+
+" php doc autocompletion
+Plug 'tobyS/vmustache' | Plug 'tobyS/pdv', {'for': 'php'}
+
+" autocompletion
+Plug 'ncm2/ncm2', {'for': 'php'}
+" Plug 'roxma/nvim-yarp', {'for': 'php'}
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-github'
+" Plug 'ncm2/ncm2-ultisnips', {'for': 'php'}
+" Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
+" Plug 'ncm2/ncm2-go'
+" Plug 'ncm2/ncm2-tern'
+" Plug 'ncm2/ncm2-cssomni'
+" Plug 'fgrsnau/ncm2-otherbuf', { 'branch': 'ncm2' }
+
+" twig
+Plug 'nelsyeung/twig.vim', {'for': 'twig'}
+
+" javascript plugins
+Plug 'pangloss/vim-javascript'
+
+Plug 'leafgarland/typescript-vim'
+
+" For react
+Plug 'mxw/vim-jsx'
+
+" For Vue
+Plug 'posva/vim-vue'
+
+" outliner
+Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
+
+" Nerdtree + modifications 
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" status bar
+Plug 'itchyny/lightline.vim'
+
+" undo tree
+" Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
+
+" registers
+Plug 'bfredl/nvim-miniyank'
+
+" close the current buffer
+Plug 'moll/vim-bbye'
+
+" systemd syntax and error
+Plug 'wgwoods/vim-systemd-syntax'
+
+" emmet for html
+Plug 'mattn/emmet-vim'
+
+" fzf - poweful fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" allow multisearch in current directory / multi replace as well
+Plug 'wincent/ferret'
+
+" display the hexadecimal colors - useful for css and color config
+Plug 'ap/vim-css-color'
+
+" easy way to rezise and exchange windows
+Plug 'simeji/winresizer'
+
+" replace f F t T to target easily the motion
+Plug 'yangmillstheory/vim-snipe'
+
+" Split arrays in PHP / struct in Go / other things
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Open man with vim using vman (need to be configured in zsh boot)
+Plug 'jez/vim-superman'
+
+" CSV plugin
+Plug 'chrisbra/csv.vim'
+
+" toml syntax highlighting
+Plug 'cespare/vim-toml'
+
+" Plug to dim not-focused windows
+" Plug 'blueyed/vim-diminactive'
+
+" Write file with sudo
+Plug 'lambdalisue/suda.vim'
+
+" Display register values on " and @
+Plug 'junegunn/vim-peekaboo'
 call plug#end()
+
+" source every plugin configs
+for file in split(glob("~/.vim/pluggedconf/*.vimrc"), '\n')
+    exe 'source' file
+endfor
 
 " Use :help <option> to see the docs
 set expandtab
@@ -51,14 +210,13 @@ set nospell
 set noswapfile
 set list
 set listchars=eol:⏎,tab:>-,trail:␠,nbsp:⎵
-let mapleader="-"
 " Fix for parcel, see:  https://github.com/parcel-bundler/parcel/issues/221
 set backupcopy=yes
 
 " Customize view
 sy on
 set t_Co=256
-colorscheme PaperColor
+colorscheme elflord
 
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
@@ -107,52 +265,7 @@ let NERDTreeIgnore+=['.*\.class$']
 
 " Bufexplorer options
 let g:bufExplorerSplitBelow=1
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '»'
-let g:airline_exclude_preview = 1
-let g:airline_left_sep = '▶'
-let g:airline_left_alt_sep = '»'
-let g:airline_right_sep = '◀'
-let g:airline_right_alt_sep = '«'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = '␤ '
-let g:airline_symbols.branch = '⎇ '
-let g:airline_symbols.paste = 'ρ'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["ts", "typoscript"] }
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_elixir_checker = 1
-" let g:syntastic_elixir_checkers = ["elixir"]
-
-" vim: set sw=4 sts=4 et fdm=marker:
-
-" Vim-php-cs-fixer
-" If you use php-cs-fixer version 2.x
-let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
-let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
-"let g:php_cs_fixer_config_file = '.php_cs' " options: --config
-" End of php-cs-fixer version 2 config params
-
-let g:php_cs_fixer_php_path = "/usr/bin/php"      " Path to PHP
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 1                    " Return the output of command if 1, else an inline information.
-
+"
 " Enter just selects the item in the autocomplete menu
 " http://vim.wikia.com/wiki/VimTip1386
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -166,21 +279,7 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
-autocmd FileType php setlocal omnifunc=phpactor#Complete
-autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
-
-" Tmux integration
-if &term =~ '^screen'
-    " tmux will send xterm-style keys when xterm-keys is on
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
-
-" Close tmux when exiting vim
-" autocmd VimLeave * silent !tmux killp -a
 
 " Custom file types
 au BufRead,BufNewFile *.md set filetype=markdown
