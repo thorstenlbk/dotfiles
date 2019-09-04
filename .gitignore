@@ -1,3 +1,4 @@
 .netrwhist
 .vim/plugged
+.vim/gutentags
 .vim/autoload/plug.vim
