@@ -52,7 +52,7 @@ Plug 'machakann/vim-swap'
 Plug 'wellle/targets.vim'
 
 " camel case motion
-Plug 'chaoren/vim-wordmotion'
+" Plug 'chaoren/vim-wordmotion'
 
 " colors for i3 config file
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -65,7 +65,7 @@ Plug 'amiorin/vim-project'
 Plug 'mhinz/vim-startify'
 
 " Asynchronous linting for every languages
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 
 " snippet engine + snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -221,7 +221,6 @@ colorscheme elflord
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
-nmap <F4> :BufExplorerHorizontalSplit<CR>
 nmap <silent> <F5> :!tmux splitw -v -l 5<CR><CR>
 nmap <Space> /
 nmap 0 ^
@@ -235,6 +234,7 @@ function! Tab_Or_Complete()
     endif
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
 :set dictionary="/usr/dict/words" )
 
 " Use fancy buffer closing that doesn't close the split
@@ -263,9 +263,6 @@ let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
 let NERDTreeIgnore+=['.*\.pyc$']
 let NERDTreeIgnore+=['.*\.class$']
 
-" Bufexplorer options
-let g:bufExplorerSplitBelow=1
-"
 " Enter just selects the item in the autocomplete menu
 " http://vim.wikia.com/wiki/VimTip1386
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -309,4 +306,3 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufWritePost .vimrc source $MYVIMRC
 " Save on application switch
 :au FocusLost * silent! wa
-
