@@ -45,6 +45,9 @@ Plug 'tpope/vim-commentary'
 " Highlight briefly every yank text
 Plug 'machakann/vim-highlightedyank'
 
+" Autoclose with matching counterpart
+Plug 'jiangmiao/auto-pairs'
+
 " swap arguments in parenthesis
 Plug 'machakann/vim-swap'
 
@@ -80,6 +83,8 @@ Plug 'chr4/nginx.vim'
 Plug 'dense-analysis/ale'
 
 " php
+" Syntax colors
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7'  } 
 " Plug 'joonty/vdebug'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
@@ -216,7 +221,7 @@ set backupcopy=yes
 " Customize view
 sy on
 set t_Co=256
-colorscheme elflord
+colorscheme jellybeans
 
 " Key remaps
 nmap <F2> :NERDTreeToggle<CR>
