@@ -131,8 +131,8 @@ Plug 'majutsushi/tagbar'
 Plug 'liuchengxu/vista.vim'
 
 " Nerdtree + modifications 
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind']}
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " status bar
 Plug 'itchyny/lightline.vim'
@@ -224,7 +224,7 @@ set t_Co=256
 colorscheme jellybeans
 
 " Key remaps
-nmap <F2> :NERDTreeToggle<CR>
+" nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <silent> <F5> :!tmux splitw -v -l 5<CR><CR>
 nmap <Space> /
@@ -247,16 +247,16 @@ nmap 0 ^
 cmap w!! w !sudo tee % >/dev/null
 
 " NERDTree options
-let NERDTreeAutoCenter = 1
-let NERDTreeCaseSensitiveSort = 1
-let NERDTreeHighlightCursorline = 1
-let NERDTreeMouseMode = 1
-let NERDTreeIgnore=['.*\.o$']
-let NERDTreeIgnore+=['.*\~$']
-let NERDTreeIgnore+=['.*\.out$']
-let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
-let NERDTreeIgnore+=['.*\.pyc$']
-let NERDTreeIgnore+=['.*\.class$']
+" let NERDTreeAutoCenter = 1
+" let NERDTreeCaseSensitiveSort = 1
+" let NERDTreeHighlightCursorline = 1
+" let NERDTreeMouseMode = 1
+" let NERDTreeIgnore=['.*\.o$']
+" let NERDTreeIgnore+=['.*\~$']
+" let NERDTreeIgnore+=['.*\.out$']
+" let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
+" let NERDTreeIgnore+=['.*\.pyc$']
+" let NERDTreeIgnore+=['.*\.class$']
 
 " Enter just selects the item in the autocomplete menu
 " http://vim.wikia.com/wiki/VimTip1386
@@ -285,7 +285,7 @@ autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<CR>
 autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<CR>
 
 " Automatic commands
-autocmd VimEnter *.c,*.cpp,*.h,*.java,*.py,*.go NERDTree
+" autocmd VimEnter *.c,*.cpp,*.h,*.java,*.py,*.go NERDTree
 autocmd FileType c,cpp,h,java,python,go nested :TagbarOpen
 
 " QuickFix window always at the bottom
