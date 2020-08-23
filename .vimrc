@@ -85,7 +85,7 @@ Plug 'dense-analysis/ale'
 " php
 " Syntax colors
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7'  } 
-" Plug 'joonty/vdebug'
+Plug 'joonty/vdebug'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug 'stephpy/vim-php-cs-fixer', {'for': 'php'}
 Plug 'nishigori/vim-php-dictionary', {'for': 'php'}
@@ -142,7 +142,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'simnalamburt/vim-mundo'
 
 " registers
-Plug 'bfredl/nvim-miniyank'
+"Plug 'bfredl/nvim-miniyank'
 
 " close the current buffer
 Plug 'moll/vim-bbye'
@@ -188,7 +188,7 @@ Plug 'cespare/vim-toml'
 Plug 'lambdalisue/suda.vim'
 
 " Display register values on " and @
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 call plug#end()
 
 " source every plugin configs
