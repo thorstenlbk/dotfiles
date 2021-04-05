@@ -184,6 +184,9 @@ Plug 'cespare/vim-toml'
 " Plug to dim not-focused windows
 " Plug 'blueyed/vim-diminactive'
 
+" Nunjucks highlighting
+Plug 'lepture/vim-jinja'
+
 " Write file with sudo
 Plug 'lambdalisue/suda.vim'
 
@@ -215,6 +218,9 @@ set nospell
 set noswapfile
 set list
 set listchars=eol:⏎,tab:>-,trail:␠,nbsp:⎵
+
+" Cursor motion
+set scrolloff=3
 " Fix for parcel, see:  https://github.com/parcel-bundler/parcel/issues/221
 set backupcopy=yes
 
